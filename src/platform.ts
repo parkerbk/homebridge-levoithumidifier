@@ -59,7 +59,7 @@ export default class Platform implements DynamicPlatformPlugin {
     const storagePath = this.api.user.storagePath();
     const defaultSessionPath = path.join(
       storagePath,
-      'homebridge-levoit-humidifiers.session.json',
+      `${PLUGIN_NAME}.session.json`,
     );
     const sessionPath = this.config.options?.sessionPath || defaultSessionPath;
     this.debugger.debug('[PLATFORM]', `Using sessionPath=${sessionPath}`);

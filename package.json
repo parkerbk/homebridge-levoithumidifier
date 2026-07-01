@@ -1,20 +1,20 @@
 {
   "description": "Homebridge plugin for Levoit Humidifiers",
-  "name": "homebridge-levoit-humidifiers",
+  "name": "homebridge-levoithumidifier",
   "displayName": "Levoit Humidifiers",
   "main": "dist/index.js",
   "license": "Apache-2.0",
-  "version": "1.20.0-beta.21",
+  "version": "1.0.0",
   "private": false,
   "bugs": {
-    "url": "https://github.com/pschroeder89/homebridge-levoit-humidifiers/issues"
+    "url": "https://github.com/parkerbk/homebridge-levoithumidifier/issues"
   },
   "repository": {
-    "url": "git://github.com/pschroeder89/homebridge-levoit-humidifiers.git",
+    "url": "git://github.com/parkerbk/homebridge-levoithumidifier.git",
     "type": "git"
   },
   "scripts": {
-    "remove-link": "npm -g remove homebridge-levoit-humidifiers",
+    "remove-link": "npm -g remove homebridge-levoithumidifier",
     "prepublishOnly": "npm run lint && npm run build",
     "watch": "npm run build && npm link && nodemon",
     "lint": "eslint src/**.ts --max-warnings=0",
@@ -59,16 +59,6 @@
     "classic 300s"
   ],
   "types": "./dist/index.d.ts",
-  "homepage": "https://github.com/pschroeder89/homebridge-levoit-humidifiers#readme",
-  "author": "Paul Schroeder",
-  "funding": [
-    {
-      "type": "github",
-      "url": "https://github.com/sponsors/pschroeder89"
-    },
-    {
-      "type": "paypal",
-      "url": "https://www.paypal.me/pschroeder89"
-    }
-  ]
+  "homepage": "https://github.com/parkerbk/homebridge-levoithumidifier#readme",
+  "author": "parkerbk <bparker2003@gmail.com>"
 }

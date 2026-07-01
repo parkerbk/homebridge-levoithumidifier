@@ -1,6 +1,7 @@
 import { Service } from 'homebridge';
 
 import Platform, { VeSyncPlatformAccessory } from './platform';
+import { PLUGIN_NAME } from './settings';
 import CurrentState from './characteristics/CurrentState';
 import Humidity from './characteristics/Humidity';
 import Active from './characteristics/Active';
@@ -150,7 +151,7 @@ export default class VeSyncAccessory {
    * Persists user renames via the change event.
    */
   private ensureConfiguredName(service: Service, name: string): void {
-    const key = `homebridge-levoit-humidifiers-configured-name-${name.replaceAll(' ', '_')}`;
+    const key = `${PLUGIN_NAME}-configured-name-${name.replaceAll(' ', '_')}`;
     service.addOptionalCharacteristic(
       this.platform.Characteristic.ConfiguredName,
     );
