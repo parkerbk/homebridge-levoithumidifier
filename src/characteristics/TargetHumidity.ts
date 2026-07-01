@@ -7,7 +7,7 @@ import {
 
 import { AccessoryThisType } from '../VeSyncAccessory';
 import { Mode } from '../api/VeSyncFan';
-import { DevicePrefix, isLV600S } from '../api/deviceTypes';
+import { DevicePrefix, isLV600S, isOasis } from '../api/deviceTypes';
 import { debounceSet } from '../utils/debounce';
 
 /**
@@ -83,7 +83,7 @@ const characteristic: {
           // LV600S / Oasis cannot change target humidity in Sleep mode
           const canSetTargetHumidityInSleep =
             !isLV600S(device.model) &&
-            !device.model.startsWith(DevicePrefix.OASIS) &&
+            !isOasis(device.model) &&
             !device.model.startsWith(DevicePrefix.OASIS_1000S);
 
           // Switch to auto-like mode if currently in Manual or Sleep (for LV600S/Oasis)

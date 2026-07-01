@@ -6,6 +6,7 @@ export enum DevicePrefix {
   LV600S_V1 = 'LUH-A602S-',
   LV600S_V2 = 'LUH-A603S-',
   OASIS = 'LUH-O451S-',
+  OASIS_V2 = 'LUH-N451S-',
   OASIS_1000S = 'LUH-M101S-',
   LEH_S601S = 'LEH-S601S-',
   O601S = 'LUH-O601S-',
@@ -14,6 +15,11 @@ export enum DevicePrefix {
 export const LV600S_PREFIXES = [
   DevicePrefix.LV600S_V1,
   DevicePrefix.LV600S_V2,
+] as const;
+
+export const OASIS_PREFIXES = [
+  DevicePrefix.OASIS,
+  DevicePrefix.OASIS_V2,
 ] as const;
 
 export const NEW_FORMAT_PREFIXES = [
@@ -29,6 +35,9 @@ const matchesAnyPrefix = (
 
 export const isLV600S = (model: string): boolean =>
   matchesAnyPrefix(model, LV600S_PREFIXES);
+
+export const isOasis = (model: string): boolean =>
+  matchesAnyPrefix(model, OASIS_PREFIXES);
 
 export const DeviceName = {
   Classic300S: 'Classic300S',
@@ -49,6 +58,10 @@ export const DeviceName = {
   OASIS_UK: `${DevicePrefix.OASIS}WUK`,
   OASIS_EU: `${DevicePrefix.OASIS}WEU`,
   OASIS_JP: `${DevicePrefix.OASIS}WJP`,
+  OASIS_V2_WUS: `${DevicePrefix.OASIS_V2}WUS`,
+  OASIS_V2_UK: `${DevicePrefix.OASIS_V2}WUK`,
+  OASIS_V2_EU: `${DevicePrefix.OASIS_V2}WEU`,
+  OASIS_V2_JP: `${DevicePrefix.OASIS_V2}WJP`,
   OASIS_1000S: `${DevicePrefix.OASIS_1000S}WUS`,
   OASIS_1000S_UK: `${DevicePrefix.OASIS_1000S}WUK`,
   OASIS_1000S_EU: `${DevicePrefix.OASIS_1000S}WEU`,
@@ -148,8 +161,8 @@ const deviceTypes: DeviceType[] = [
     maxHumidityLevel: 80,
   },
   {
-    // Oasis family (LUH-O451S-*)
-    isValid: (input: string) => input.includes(DevicePrefix.OASIS),
+    // Oasis family (LUH-O451S-* and LUH-N451S-* variants)
+    isValid: (input: string) => isOasis(input),
     hasAutoMode: true,
     mistLevels: 9,
     hasLight: false,
